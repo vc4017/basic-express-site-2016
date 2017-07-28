@@ -2,12 +2,12 @@
 groups:
 - name: main
   jobs:
-  - job-deploy-app
+  - deploy-job
 resources:
-- name: Node-js-app
+- name: basic-express-site-2016
   type: git
   source:
-    uri: https://github.com/vc4017/crud-operations-on-mongodb.git
+    uri: https://github.com/vc4017/basic-express-site-2016.git
     branch: master
 
 - name: cf-env
@@ -25,11 +25,11 @@ jobs:
 
 
 
-- name: job-deploy-app
+- name: deploy-job
   serial: true
   plan:
-  - {get: Node-js-app, trigger: true}
+  - {get: basic-express-site-2016, trigger: true}
   - put: cf-env
     params:
-      manifest: Node-js-app/manifest.yml
-      path: Node-js-app
+      manifest: basic-express-site-2016/manifest.yml
+      path: basic-express-site-2016
