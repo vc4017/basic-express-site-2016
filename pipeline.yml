@@ -2,6 +2,7 @@
 groups:
 - name: main
   jobs:
+  - build-docker-image
   - deploy-job
 resources:
 - name: basic-express-site-2016
