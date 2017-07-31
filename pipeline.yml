@@ -30,7 +30,6 @@ resources:
 
 jobs:
 
-jobs:  
 - name: build-docker-image
   public: true
   serial: true
